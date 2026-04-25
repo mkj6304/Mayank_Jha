@@ -1,7 +1,8 @@
 import React from "react";
 
 const achievements = [
-  "Winner - BITSHINE 2025 (BIT Durg): Created GlideMate, a smart wheelchair using voice and gesture controls."
+  "Winner - BITSHINE 2025 (BIT Durg): Created GlideMate, a smart wheelchair using voice and gesture controls.","Wiinner Young Engineer's Award 2025",
+  "Grand Finalist - Smart India Hackathon 2025"
 ];
 
 const Achievements = () => {
