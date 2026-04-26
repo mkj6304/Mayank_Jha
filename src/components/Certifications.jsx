@@ -2,23 +2,19 @@ import React from "react";
 
 const certifications = [
   {
-    title: "Develop GenAI Apps with Gemini & Streamlit – Google (May 2024)",
+    title: "Develop GenAI Apps with Gemini & Streamlit – Google (2024)",
     link: "#"
   },
   {
-    title: "Introduction to Generative AI – Google (May 2024)",
+    title: "Introduction to Generative AI – Google (2024)",
     link: "#"
   },
   {
-    title: "Prompt Design in Vertex AI – Google (May 2024)",
+    title: "Prompt Design in Vertex AI – Google (2024)",
     link: "#"
   },
   {
-    title: "Google Cloud Cybersecurity – Google (Mar 2025)",
-    link: "#"
-  },
-  {
-    title: "Web Development – Internshala (Jul 2024)",
+    title: "Web Development – Internshala (2024)",
     link: "#"
   }
 ];

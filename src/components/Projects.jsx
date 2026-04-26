@@ -4,29 +4,44 @@ import "aos/dist/aos.css";
 
 const projects = [
   {
-    title: "HospiSync",
-    description: "AI-based hospital system optimizing OPD queues, admissions, and inventory flow.",
+    title: "HospiSync – AI-powered Hospital Management System",
+    description:
+      "Full-stack hospital automation system integrating patient admission, OPD queuing, and inventory. ML-powered hospital recommendation system achieving 93% accuracy with real-time dashboards for doctors, hospitals, and patients.",
     link: "https://hospisync-frontend.vercel.app/",
+    github: null,
+    tag: "Nov 2025 – Present",
   },
   {
-    title: "Every-News",
-    description: "A real-time news website showing category-wise news for free using external News API.",
-    link: "https://every-news.vercel.app/",
+    title: "MediFlow – Medicine Supply Chain Quality Checker",
+    description:
+      "Full-stack ML-based supply chain validator processing 10k+ reports with 92% accuracy. Uses OCR for batch/expiry data extraction and provides secure portals for hospitals, pharmacies, and manufacturers.",
+    link: "https://github.com/mkj6304/MediFlow",
+    github: "https://github.com/mkj6304/MediFlow",
+    tag: "Jul 2025 – Present",
   },
   {
-    title: "MediChecker",
-    description: "AI-powered platform to monitor medicine quality using IoT sensors and blockchain.",
+    title: "OASIS – Oceanographic AI-based Surveillance Insight System",
+    description:
+      "AI-driven oceanography analytics platform using satellite, sensor, and historical ocean data. Implements anomaly detection and trend prediction models for early ocean health warnings with interactive dashboards.",
     link: "#",
+    github: null,
+    tag: "Dec 2025 · SIH, AI/ML",
   },
   {
-    title: "Smart Wheelchair (GlideMate)",
-    description: "Voice & gesture-controlled smart wheelchair with obstacle detection and mobility tracking.",
-    link: "#",
+    title: "GlideMate – Smart Wheelchair with Voice Navigation",
+    description:
+      "Arduino-based smart wheelchair using ultrasonic sensors and voice commands. Supports natural commands with 90%+ accuracy. Won BITSHINE 2025 Innovation Award.",
+    link: "https://github.com/mkj6304/GlideMate",
+    github: "https://github.com/mkj6304/GlideMate",
+    tag: "Jan 2025",
   },
   {
-    title: "LinguaQuest",
-    description: "AI system to generate Q&A from multilingual PDFs, enhancing academic accessibility.",
-    link: "#",
+    title: "Askify – AI-Powered Document QA Platform",
+    description:
+      "AI-based QnA generator using OpenAI API and multilingual OCR. Supports 10+ languages and handles PDFs up to 100+ pages.",
+    link: "https://github.com/mkj6304/Askify",
+    github: "https://github.com/mkj6304/Askify",
+    tag: "Feb 2025",
   },
 ];
 
@@ -48,23 +63,38 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform transition duration-300 ease-in-out group relative overflow-hidden"
+              className="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-yellow-500/30 hover:scale-105 transform transition duration-300 ease-in-out group relative overflow-hidden flex flex-col"
               data-aos="zoom-in"
               data-aos-delay={`${index * 150}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition duration-300 blur-sm" />
-              <h3 className="text-2xl font-semibold mb-2 text-yellow-200 relative z-10">
+              <span className="text-xs text-purple-300 font-medium mb-2 relative z-10">{project.tag}</span>
+              <h3 className="text-xl font-semibold mb-2 text-yellow-200 relative z-10">
                 {project.title}
               </h3>
-              <p className="text-gray-300 mb-4 relative z-10">{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-yellow-400 hover:text-yellow-200 font-medium transition relative z-10"
-              >
-                View Project →
-              </a>
+              <p className="text-gray-300 mb-4 relative z-10 flex-grow">{project.description}</p>
+              <div className="flex gap-4 relative z-10">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white font-medium transition text-sm"
+                  >
+                    GitHub →
+                  </a>
+                )}
+                {project.link && project.link !== project.github && project.link !== "#" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-yellow-400 hover:text-yellow-200 font-medium transition text-sm"
+                  >
+                    Live Demo →
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
