@@ -4,31 +4,35 @@ import "aos/dist/aos.css";
 
 const projects = [
   {
-    title: "HospiSync – AI-powered Hospital Management System",
+    title: "HospiSync",
+    tech: "MERN, Flask, ML",
     description:
-      "Full-stack hospital automation system integrating patient admission, OPD queuing, and inventory. ML-powered hospital recommendation system achieving 93% accuracy with real-time dashboards for doctors, hospitals, and patients.",
+      "Automated hospital OPD, admissions, and inventory workflows, improving operational efficiency by 25%. Integrated Flask-based ML API for intelligent bed allocation with 90% prediction accuracy. Built dashboards supporting 500+ concurrent patient records.",
     link: "https://hospisync-frontend.vercel.app/",
     github: null,
-    tag: "Nov 2025 – Present",
+    tag: "2025",
   },
   {
-    title: "MediFlow – Medicine Supply Chain Quality Checker",
+    title: "MediFlow",
+    tech: "Full Stack, ML",
     description:
-      "Full-stack ML-based supply chain validator processing 10k+ reports with 92% accuracy. Uses OCR for batch/expiry data extraction and provides secure portals for hospitals, pharmacies, and manufacturers.",
+      "ML-based medicine and supply-chain validation system processing 10k+ reports. Automated quality analysis, reducing manual verification time by 40%.",
     link: "https://github.com/mkj6304/MediFlow",
     github: "https://github.com/mkj6304/MediFlow",
-    tag: "Jul 2025 – Present",
+    tag: "2025",
   },
   {
-    title: "OASIS – Oceanographic AI-based Surveillance Insight System",
+    title: "OASIS – Oceanographic AI-based Surveillance & Insight System",
+    tech: "SIH, AI/ML",
     description:
-      "AI-driven oceanography analytics platform using satellite, sensor, and historical ocean data. Implements anomaly detection and trend prediction models for early ocean health warnings with interactive dashboards.",
+      "AI-driven oceanography analytics platform using satellite, sensor, and historical ocean data. Implements anomaly detection and trend prediction models for early ocean health warnings with interactive dashboards for researchers and policy-level decision making.",
     link: "#",
     github: null,
-    tag: "Dec 2025 · SIH, AI/ML",
+    tag: "2025",
   },
   {
     title: "GlideMate – Smart Wheelchair with Voice Navigation",
+    tech: "Arduino, IoT",
     description:
       "Arduino-based smart wheelchair using ultrasonic sensors and voice commands. Supports natural commands with 90%+ accuracy. Won BITSHINE 2025 Innovation Award.",
     link: "https://github.com/mkj6304/GlideMate",
@@ -37,6 +41,7 @@ const projects = [
   },
   {
     title: "Askify – AI-Powered Document QA Platform",
+    tech: "OpenAI API, OCR",
     description:
       "AI-based QnA generator using OpenAI API and multilingual OCR. Supports 10+ languages and handles PDFs up to 100+ pages.",
     link: "https://github.com/mkj6304/Askify",
@@ -68,7 +73,10 @@ const Projects = () => {
               data-aos-delay={`${index * 150}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition duration-300 blur-sm" />
-              <span className="text-xs text-purple-300 font-medium mb-2 relative z-10">{project.tag}</span>
+              <div className="flex items-center justify-between mb-2 relative z-10">
+                <span className="text-xs text-purple-300 font-medium">{project.tag}</span>
+                <span className="text-xs text-gray-500 font-medium">{project.tech}</span>
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-yellow-200 relative z-10">
                 {project.title}
               </h3>

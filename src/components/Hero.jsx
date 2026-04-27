@@ -25,10 +25,30 @@ const Hero = () => {
             Hello, I'm Mayank Jha
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-6">
-            Software Engineer | Web Developer | AI Innovator
+            Full-Stack Developer · ML Engineer · AI Innovator
           </p>
           <p className="text-gray-400 mb-8 max-w-md">
-Passionate about clean code, smart design, and scalable tech — I develop solutions that matter.          </p>
+            Building scalable web apps, RESTful APIs, and ML-driven features — end-to-end, production-ready.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
+            <a
+              href="https://github.com/mkj6304"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-300 hover:text-yellow-300 transition"
+            >
+              github.com/mkj6304
+            </a>
+            <span className="text-gray-600">·</span>
+            <a
+              href="https://linkedin.com/in/mayank-jha-361573298"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-300 hover:text-yellow-300 transition"
+            >
+              linkedin.com/in/mayank-jha-361573298
+            </a>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a
@@ -36,6 +56,14 @@ Passionate about clean code, smart design, and scalable tech — I develop solut
               className="bg-yellow-300 text-purple-800 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-400 shadow hover:scale-105 transition"
             >
               Explore Projects
+            </a>
+            <a
+              href="https://github.com/mkj6304"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-yellow-300 text-yellow-300 px-6 py-3 rounded-xl font-semibold hover:bg-yellow-300 hover:text-purple-800 shadow hover:scale-105 transition"
+            >
+              GitHub Profile
             </a>
           </div>
         </div>

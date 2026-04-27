@@ -4,25 +4,27 @@ import React from "react";
 const skillGroups = [
   {
     category: "Languages",
-    skills: ["C++", "Python", "C"],
+    skills: ["Java", "Python", "C"],
   },
   {
-    category: "Frontend",
-    skills: ["React.js", "HTML", "CSS", "JavaScript", "Bootstrap", "Tailwind CSS"],
-  },
-  {
-    category: "Backend",
-    skills: ["Node.js", "Express.js", "PHP"],
+    category: "Frameworks",
+    skills: ["React.js", "Node.js", "Express.js", "Flask", "PHP", "Bootstrap"],
   },
   {
     category: "Databases",
-    skills: ["MySQL", "MongoDB"],
+    skills: ["MongoDB", "PostgreSQL", "PhpMyAdmin"],
   },
   {
-    category: "Tools",
-    skills: ["Git", "GitHub", "VS Code", "Vercel"],
+    category: "Developer Tools",
+    skills: ["Git", "GitHub", "Postman", "Vercel"],
+  },
+  {
+    category: "Other",
+    skills: ["Machine Learning", "Generative AI", "OpenAI API"],
   },
 ];
+
+// Note: Tailwind CSS is used in this project but listed under Frameworks in the resume
 
 const Skills = () => {
   return (

@@ -2,21 +2,33 @@ import React from "react";
 
 const certifications = [
   {
+    title: "Summer Analytics – IIT Guwahati (2024)",
+    link: "#",
+  },
+  {
     title: "Develop GenAI Apps with Gemini & Streamlit – Google (2024)",
-    link: "#"
+    link: "#",
   },
   {
     title: "Introduction to Generative AI – Google (2024)",
-    link: "#"
+    link: "#",
   },
   {
     title: "Prompt Design in Vertex AI – Google (2024)",
-    link: "#"
+    link: "#",
+  },
+  {
+    title: "Postman Student API Expert (2025)",
+    link: "#",
   },
   {
     title: "Web Development – Internshala (2024)",
-    link: "#"
-  }
+    link: "#",
+  },
+  {
+    title: "Prompt Engineering – Simplilearn (2025)",
+    link: "#",
+  },
 ];
 
 const Certifications = () => {

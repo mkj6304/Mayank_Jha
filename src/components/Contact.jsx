@@ -35,8 +35,6 @@ const Contact = () => {
           <a href="https://www.linkedin.com/in/mayank-jha-361573298/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin hover:text-white transition" />
           </a>
-    
-          
           <a href="https://instagram.com/mayank_jha04" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram hover:text-white transition" />
           </a>

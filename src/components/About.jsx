@@ -1,6 +1,9 @@
 import React from "react";
 import profileImage from "../assets/img.jpg";
 
+const summary =
+  "Computer Science undergraduate with hands-on experience in full-stack development and machine learning. Skilled in building scalable web applications, designing RESTful APIs, optimizing databases, and integrating ML-driven features. Proven ability to work on end-to-end systems, improve performance, and deliver production-ready solutions through internships and real-world projects.";
+
 const experience = [
   {
     role: "Software Engineer Intern",
@@ -8,8 +11,9 @@ const experience = [
     period: "May 2025 – Jul 2025",
     type: "Hybrid",
     points: [
-      "Designed and developed responsive user interfaces using React.js, ensuring seamless navigation and visual consistency across devices.",
-      "Implemented reusable components, optimized rendering performance, and integrated APIs to enhance overall user engagement.",
+      "Built MERN stack application with reusable React components, improving development speed by 15%.",
+      "Optimized MongoDB queries, reducing API response time by 20%.",
+      "Developed secure REST APIs with authentication, reducing downtime incidents by 10%.",
     ],
   },
   {
@@ -18,9 +22,9 @@ const experience = [
     period: "May 2024 – Jul 2024",
     type: "Remote",
     points: [
-      "Built responsive React.js frontends, boosting user engagement by 18%.",
-      "Integrated PHP/MySQL backend following MVC architecture.",
-      "Supported demo platform handling 500+ users for certification program.",
+      "Built responsive React.js frontends, increasing user engagement by 18%.",
+      "Integrated PHP/MySQL backend, reducing page load time by 25%.",
+      "Supported demo platform handling 500+ users during certification program.",
     ],
   },
 ];
@@ -53,16 +57,7 @@ const About = () => {
               graduating June 2026.
             </p>
             <div className="mt-6 text-gray-400 text-base md:text-lg leading-relaxed">
-              <p className="mb-4">
-                I'm passionate about building impactful digital products that blend design,
-                logic, and intelligence — from AI-powered healthcare systems to multilingual
-                document tools.
-              </p>
-              <p>
-                Constantly exploring new technologies, I turn innovative ideas into elegant,
-                responsive, and scalable software — driven by curiosity and a love for clean
-                code.
-              </p>
+              <p>{summary}</p>
             </div>
           </div>
         </div>
