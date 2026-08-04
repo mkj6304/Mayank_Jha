@@ -53,7 +53,7 @@ const About = () => {
             <p className="text-lg md:text-xl leading-relaxed text-gray-300">
               I'm{" "}
               <span className="text-yellow-200 font-semibold">Mayank Kumar Jha</span>, a
-              Computer Science student at Bhilai Institute of Technology, Durg (CPI: 9.08),
+              Computer Science student at Bhilai Institute of Technology, Durg (CPI: 9.1),
               graduating June 2026.
             </p>
             <div className="mt-6 text-gray-400 text-base md:text-lg leading-relaxed">

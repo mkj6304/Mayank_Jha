@@ -20,10 +20,10 @@ function App() {
       <main className="pt-20">
         <Hero />
         <About />
-        <Skills />
         <Projects />
         <Research />
         <Achievements />
+        <Skills />
         <Certifications />
         <Contact />
       </main>

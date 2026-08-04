@@ -1,55 +1,119 @@
-// Updated Skills.jsx without react-icons dependency
 import React from "react";
+import {
+  FaJava,
+  FaPython,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaGithub,
+  FaRobot,
+  FaJsSquare,
+} from "react-icons/fa";
+
+import {
+  SiC,
+  SiExpress,
+  SiFlask,
+  SiPhp,
+  SiBootstrap,
+  SiTailwindcss,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+  SiPostman,
+  SiVercel,
+  SiOpenapiinitiative,
+} from "react-icons/si";
+
+import { VscVscode } from "react-icons/vsc";
+
+import "./Skills.css";
 
 const skillGroups = [
   {
-    category: "Languages",
-    skills: ["Java", "Python", "C"],
+    title: "Languages",
+    skills: [
+      { name: "Java", icon: <FaJava color="#f89820" /> },
+      { name: "Python", icon: <FaPython color="#3776AB" /> },
+      { name: "JavaScript", icon: <FaJsSquare color="#F7DF1E" /> },
+      { name: "C", icon: <SiC color="#00599C" /> },
+    ],
   },
+
   {
-    category: "Frameworks",
-    skills: ["React.js", "Node.js", "Express.js", "Flask", "PHP", "Bootstrap"],
+    title: "Frameworks & Libraries",
+    skills: [
+      { name: "React.js", icon: <FaReact color="#61DAFB" /> },
+      { name: "Node.js", icon: <FaNodeJs color="#68A063" /> },
+      { name: "Express.js", icon: <SiExpress color="#ffffff" /> },
+      { name: "Flask", icon: <SiFlask color="#ffffff" /> },
+      { name: "PHP", icon: <SiPhp color="#777BB4" /> },
+      { name: "Bootstrap", icon: <SiBootstrap color="#7952B3" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss color="#38BDF8" /> },
+    ],
   },
+
   {
-    category: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "PhpMyAdmin"],
+    title: "Databases",
+    skills: [
+      { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
+      { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
+    ],
   },
+
   {
-    category: "Developer Tools",
-    skills: ["Git", "GitHub", "Postman", "Vercel"],
+    title: "Developer Tools",
+    skills: [
+      { name: "Git", icon: <FaGitAlt color="#F05032" /> },
+      { name: "GitHub", icon: <FaGithub color="#ffffff" /> },
+      { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
+      { name: "VS Code", icon: <VscVscode color="#007ACC" /> },
+      { name: "Vercel", icon: <SiVercel color="#ffffff" /> },
+    ],
   },
+
   {
-    category: "Other",
-    skills: ["Machine Learning", "Generative AI", "OpenAI API"],
+    title: "AI & Other Technologies",
+    skills: [
+      { name: "Machine Learning", icon: <FaRobot color="#FFD43B" /> },
+      { name: "Generative AI", icon: "🧠" },
+      { name: "Prompt Engineering", icon: "✨" },
+      { name: "OpenAI API", icon: "🤖" },
+      { name: "REST APIs", icon: <SiOpenapiinitiative color="#6BA539" /> },
+    ],
   },
 ];
 
-// Note: Tailwind CSS is used in this project but listed under Frameworks in the resume
-
 const Skills = () => {
   return (
-    <section id="skills" className="bg-gray-950 text-gray-100 py-20 px-6">
-      <div className="max-w-6xl mx-auto" data-aos="fade-up">
-        <h2 className="text-4xl md:text-5xl font-bold text-yellow-300 text-center mb-12">Skills</h2>
-        <div className="space-y-8">
-          {skillGroups.map((group, gIdx) => (
-            <div key={gIdx}>
-              <h3 className="text-yellow-400 font-semibold text-lg mb-3 uppercase tracking-wider">
-                {group.category}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {group.skills.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="bg-gray-800 text-yellow-200 font-medium px-5 py-2 rounded-xl shadow-md hover:shadow-yellow-400/20 hover:-translate-y-1 transition transform text-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+    <section id="skills" className="skills-section">
+      <div className="skills-container">
+
+        <h2 className="skills-heading">
+          Skills & Technologies
+        </h2>
+
+        {skillGroups.map((group) => (
+          <div className="category" key={group.title}>
+
+            <h3>{group.title}</h3>
+
+            <div className="skills-grid">
+              {group.skills.map((skill) => (
+                <div className="skill-card" key={skill.name}>
+                  <div className="skill-icon">
+                    {skill.icon}
+                  </div>
+
+                  <span>{skill.name}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+
+          </div>
+        ))}
+
       </div>
     </section>
   );
