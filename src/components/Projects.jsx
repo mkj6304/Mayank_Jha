@@ -48,6 +48,15 @@ const projects = [
     github: "https://github.com/mkj6304/Askify",
     tag: "Feb 2025",
   },
+  {
+    title: "Every-News",
+    tech: "React, News API, Rest API",
+    description:
+      "A real-time news aggregator that fetches and displays news articles from multiple sources using the News API.",
+    link: "https://every-news.vercel.app/",
+    github: "https://github.com/mkj6304/Every-News",
+    tag: "Feb 2024",
+  },
 ];
 
 const Projects = () => {
