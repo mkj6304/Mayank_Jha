@@ -1,7 +1,7 @@
 import React from "react";
 
 const achievements = [
-  "🏆 Topper of Batch 2026 – CSE AI BIT Durg CPI:9.1",
+  "🏆 Batch Topper 2026 – CSE (AI), BIT Durg – CPI: 9.1",
   "🏆 Winner – Young Engineer's Award 2025",
   "🏆 Winner – BITSHINE 2025 (GlideMate Smart Wheelchair)",
   "🥈 Grand Finalist – Smart India Hackathon 2025 (Oceanography Project – OASIS)",

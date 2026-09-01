@@ -26,7 +26,7 @@ const projects = [
     tech: "SIH, AI/ML",
     description:
       "AI-driven oceanography analytics platform using satellite, sensor, and historical ocean data. Implements anomaly detection and trend prediction models for early ocean health warnings with interactive dashboards for researchers and policy-level decision making.",
-    link: "#",
+    link: null,
     github: null,
     tag: "2025",
   },
@@ -56,6 +56,15 @@ const projects = [
     link: "https://every-news.vercel.app/",
     github: "https://github.com/mkj6304/Every-News",
     tag: "Feb 2024",
+  },
+  {
+    title: "StudySync",
+    tech: "HTML, CSS, JavaScript",
+    description:
+      "A reliable resource-sharing platform built for fellow CS juniors — centralizing coursework materials and college resources in one place.",
+    link: null,
+    github: "https://github.com/mkj6304/StudySync",
+    tag: "2025",
   },
 ];
 

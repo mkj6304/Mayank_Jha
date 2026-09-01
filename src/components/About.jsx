@@ -2,7 +2,7 @@ import React from "react";
 import profileImage from "../assets/img.jpg";
 
 const summary =
-  "Computer Science undergraduate with hands-on experience in full-stack development and machine learning. Skilled in building scalable web applications, designing RESTful APIs, optimizing databases, and integrating ML-driven features. Proven ability to work on end-to-end systems, improve performance, and deliver production-ready solutions through internships and real-world projects.";
+  "Computer Science (AI) graduate with hands-on experience in full-stack development and machine learning. Skilled in building scalable web applications, designing RESTful APIs, optimizing databases, and integrating ML-driven features. Proven ability to work on end-to-end systems, improve performance, and deliver production-ready solutions through internships and real-world projects.";
 
 const experience = [
   {
@@ -53,8 +53,8 @@ const About = () => {
             <p className="text-lg md:text-xl leading-relaxed text-gray-300">
               I'm{" "}
               <span className="text-yellow-200 font-semibold">Mayank Kumar Jha</span>, a
-              Computer Science student at Bhilai Institute of Technology, Durg (CPI: 9.1),
-              graduating June 2026.
+              Computer Science & Engineering (AI Specialization) graduate from Bhilai
+              Institute of Technology, Durg (CPI: 9.1), Class of 2026.
             </p>
             <div className="mt-6 text-gray-400 text-base md:text-lg leading-relaxed">
               <p>{summary}</p>
