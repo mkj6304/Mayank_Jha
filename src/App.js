@@ -11,6 +11,7 @@ import Certifications from "./components/Certifications";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Publications from "./components/publications";
 
 function App() {
   return (
@@ -21,11 +22,13 @@ function App() {
         <Hero />
         <About />
         <Projects />
+        <Publications />
         <Research />
         <Achievements />
         <Skills />
         <Certifications />
         <Contact />
+        
       </main>
 
       <Footer />
