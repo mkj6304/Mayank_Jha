@@ -1,48 +1,27 @@
-import React, { useRef, useState } from "react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import React, { useState } from "react";
 
 const Contact = () => {
-  const formRef = useRef(null);
-  const captchaRef = useRef(null);
-
-  const [captchaToken, setCaptchaToken] = useState("");
   const [status, setStatus] = useState("");
   const [statusType, setStatusType] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleCaptchaVerify = (token) => {
-    setCaptchaToken(token);
-  };
-
-  const handleCaptchaExpire = () => {
-    setCaptchaToken("");
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isSubmitting) return;
 
-    const form = formRef.current;
+    const form = e.currentTarget;
 
-    // Browser-level validation
+    // Native browser validation
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    // CAPTCHA validation
-    if (!captchaToken) {
-      setStatus("Please complete the security verification.");
-      setStatusType("error");
-      return;
-    }
+    // Honeypot spam protection
+    const botcheck = form.elements.botcheck?.value;
 
-    // Honeypot check
-    const honeypot = form.elements["botcheck"]?.value;
-
-    if (honeypot) {
-      // Silently ignore obvious bot submissions
+    if (botcheck) {
       return;
     }
 
@@ -53,29 +32,23 @@ const Contact = () => {
     try {
       const formData = new FormData(form);
 
-      // Web3Forms access key.
-      // This is intentionally public according to Web3Forms.
       formData.append(
         "access_key",
         "51c104f8-a7ea-4363-a8d9-c5263e1a447d"
       );
 
-      // CAPTCHA token
-      formData.append("h-captcha-response", captchaToken);
-
-      // Email subject shown in your inbox
       formData.append(
         "subject",
         `Portfolio Contact: ${formData.get("subject")}`
       );
 
-      // Name displayed with the notification
       formData.append(
         "from_name",
-        "Mayank Jha Portfolio"
+        `Portfolio Contact - ${formData.get("name")}`
       );
 
-      // Visitor's email becomes Reply-To
+      // Allows you to click Reply in your email
+      // and reply directly to the visitor.
       formData.append(
         "replyto",
         formData.get("email")
@@ -95,12 +68,11 @@ const Contact = () => {
         setStatus(
           "Message sent successfully! I'll get back to you soon."
         );
+
         setStatusType("success");
 
+        // Correct way to reset the actual form
         form.reset();
-        setCaptchaToken("");
-
-        captchaRef.current?.reset();
 
       } else {
         throw new Error(
@@ -112,12 +84,10 @@ const Contact = () => {
       console.error("Contact form error:", error);
 
       setStatus(
-        "Something went wrong while sending your message. Please try again or email me directly."
+        "Unable to send your message right now. Please email me directly."
       );
-      setStatusType("error");
 
-      captchaRef.current?.reset();
-      setCaptchaToken("");
+      setStatusType("error");
 
     } finally {
       setIsSubmitting(false);
@@ -149,13 +119,12 @@ const Contact = () => {
 
         </div>
 
-        {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-          {/* LEFT SIDE */}
+          {/* CONTACT INFORMATION */}
           <div
-            className="bg-gray-800 rounded-2xl p-8 shadow-lg
-                       border border-gray-700"
+            className="bg-gray-800 rounded-2xl p-8
+                       shadow-lg border border-gray-700"
           >
 
             <h3 className="text-2xl font-semibold text-yellow-200 mb-4">
@@ -179,7 +148,7 @@ const Contact = () => {
                            border border-yellow-300/20
                            flex items-center justify-center"
               >
-                <span className="text-xl">📧</span>
+                📧
               </div>
 
               <div>
@@ -206,7 +175,7 @@ const Contact = () => {
                            border border-yellow-300/20
                            flex items-center justify-center"
               >
-                <span className="text-xl">📞</span>
+                📞
               </div>
 
               <div>
@@ -269,12 +238,11 @@ const Contact = () => {
 
           </div>
 
-          {/* RIGHT SIDE — FORM */}
+          {/* FORM */}
           <form
-            ref={formRef}
             onSubmit={handleSubmit}
-            className="bg-gray-800 rounded-2xl p-8 shadow-lg
-                       border border-gray-700"
+            className="bg-gray-800 rounded-2xl p-8
+                       shadow-lg border border-gray-700"
           >
 
             <h3 className="text-2xl font-semibold text-yellow-200 mb-6">
@@ -309,13 +277,10 @@ const Contact = () => {
                   minLength={2}
                   maxLength={80}
                   placeholder="John Doe"
-                  className="w-full bg-gray-900
-                             border border-gray-700
-                             rounded-lg px-4 py-3
-                             text-white
-                             placeholder-gray-600
-                             focus:outline-none
-                             focus:border-yellow-300
+                  className="w-full bg-gray-900 border
+                             border-gray-700 rounded-lg px-4 py-3
+                             text-white placeholder-gray-600
+                             focus:outline-none focus:border-yellow-300
                              transition"
                 />
               </div>
@@ -335,20 +300,17 @@ const Contact = () => {
                   required
                   maxLength={150}
                   placeholder="john@example.com"
-                  className="w-full bg-gray-900
-                             border border-gray-700
-                             rounded-lg px-4 py-3
-                             text-white
-                             placeholder-gray-600
-                             focus:outline-none
-                             focus:border-yellow-300
+                  className="w-full bg-gray-900 border
+                             border-gray-700 rounded-lg px-4 py-3
+                             text-white placeholder-gray-600
+                             focus:outline-none focus:border-yellow-300
                              transition"
                 />
               </div>
 
             </div>
 
-            {/* Contact Reason */}
+            {/* Reason */}
             <div className="mb-5">
 
               <label
@@ -363,39 +325,36 @@ const Contact = () => {
                 name="reason"
                 required
                 defaultValue=""
-                className="w-full bg-gray-900
-                           border border-gray-700
-                           rounded-lg px-4 py-3
-                           text-white
-                           focus:outline-none
-                           focus:border-yellow-300
-                           transition"
+                className="w-full bg-gray-900 border
+                           border-gray-700 rounded-lg px-4 py-3
+                           text-white focus:outline-none
+                           focus:border-yellow-300 transition"
               >
                 <option value="" disabled>
                   Select an option
                 </option>
 
-                <option value="project">
+                <option value="Hiring for a Project">
                   Hiring for a Project
                 </option>
 
-                <option value="freelance">
+                <option value="Freelance Work">
                   Freelance Work
                 </option>
 
-                <option value="job">
+                <option value="Job Opportunity">
                   Job Opportunity
                 </option>
 
-                <option value="collaboration">
+                <option value="Collaboration">
                   Collaboration
                 </option>
 
-                <option value="research">
+                <option value="Research Collaboration">
                   Research Collaboration
                 </option>
 
-                <option value="other">
+                <option value="Other">
                   Other
                 </option>
               </select>
@@ -420,13 +379,10 @@ const Contact = () => {
                 minLength={3}
                 maxLength={120}
                 placeholder="What would you like to discuss?"
-                className="w-full bg-gray-900
-                           border border-gray-700
-                           rounded-lg px-4 py-3
-                           text-white
-                           placeholder-gray-600
-                           focus:outline-none
-                           focus:border-yellow-300
+                className="w-full bg-gray-900 border
+                           border-gray-700 rounded-lg px-4 py-3
+                           text-white placeholder-gray-600
+                           focus:outline-none focus:border-yellow-300
                            transition"
               />
 
@@ -449,29 +405,12 @@ const Contact = () => {
                 minLength={10}
                 maxLength={3000}
                 rows="6"
-                placeholder="Tell me a little about your project, opportunity, or idea..."
-                className="w-full bg-gray-900
-                           border border-gray-700
-                           rounded-lg px-4 py-3
-                           text-white
-                           placeholder-gray-600
-                           resize-none
-                           focus:outline-none
-                           focus:border-yellow-300
-                           transition"
-              />
-
-            </div>
-
-            {/* CAPTCHA */}
-            <div className="mb-6">
-
-              <HCaptcha
-                ref={captchaRef}
-                sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                reCaptchaCompat={false}
-                onVerify={handleCaptchaVerify}
-                onExpire={handleCaptchaExpire}
+                placeholder="Tell me about your project, opportunity, or idea..."
+                className="w-full bg-gray-900 border
+                           border-gray-700 rounded-lg px-4 py-3
+                           text-white placeholder-gray-600
+                           resize-none focus:outline-none
+                           focus:border-yellow-300 transition"
               />
 
             </div>
@@ -480,27 +419,22 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full font-bold py-3 px-6
-                         rounded-lg transition-all duration-200
-                         ${
-                           isSubmitting
-                             ? "bg-gray-600 text-gray-400 cursor-not-allowed"
-                             : "bg-yellow-300 text-gray-900 hover:bg-yellow-200 hover:shadow-lg hover:shadow-yellow-400/20"
-                         }`}
+              className={`w-full font-bold py-3 px-6 rounded-lg
+                          transition-all duration-200
+                          ${
+                            isSubmitting
+                              ? "bg-gray-600 text-gray-400 cursor-not-allowed"
+                              : "bg-yellow-300 text-gray-900 hover:bg-yellow-200 hover:shadow-lg hover:shadow-yellow-400/20"
+                          }`}
             >
 
-              {isSubmitting ? (
-                <span className="flex items-center justify-center gap-2">
-                  <span className="animate-spin">◌</span>
-                  Sending...
-                </span>
-              ) : (
-                "Send Message ↗"
-              )}
+              {isSubmitting
+                ? "Sending..."
+                : "Send Message ↗"}
 
             </button>
 
-            {/* Status Message */}
+            {/* Status */}
             {status && (
               <div
                 className={`mt-4 p-3 rounded-lg text-sm text-center ${
